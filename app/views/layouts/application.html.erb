@@ -11,9 +11,18 @@
 
   <body>
     <p>
+      <!-- If Logged In -->
+      
+      <% if @current_user %>
+      Welcome.
+     <p><%= button_to "Log Out", "/sessions/logout", method: :delete %></p>
+      <% else %>          
+            
       <a href="/sessions/new">Log In</a>
+      |
       <a href="/users/new">Sign Up</a>
     </p>
+      <% end %>
 
     <p>
       <%= flash[:notice] %>
